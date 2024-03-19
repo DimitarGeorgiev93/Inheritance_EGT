@@ -1,0 +1,8 @@
+# Ignore all files
+*
+# Unignore directories
+!.gitignore
+!*/
+# Except for .cpp and .h files
+!*.cpp
+!*.h
