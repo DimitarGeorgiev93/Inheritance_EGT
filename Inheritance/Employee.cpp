@@ -1,32 +1,39 @@
 #include "Employee.h"
 
-Employee::Employee(const std::string name, const unsigned workExperience, const double salary)
+Employee::Employee(const std::string NewEmployeeName, const unsigned int NewWorkExperience, const double NewSalary)
 {
-	this->name = name;
-	this->workExperience = workExperience;
-	this->salary = salary;
+	EmployeeName = NewEmployeeName;
+	WorkExperience = NewWorkExperience;
+	Salary = NewSalary;
 }
 
 Employee::~Employee()
 {
 }
 
+void Employee::PrintInfo() const
+{
+	std::cout << "Name: " << Employee::GetName();
+	std::cout << " | Work experience: " << Employee::GetWorkExperience();
+	std::cout << " | Salary: " << Employee::GetSalary(); 
+}
+
 void Employee::IncreaseSalary()
 {
-	this->salary = this->salary + (0.01 * (this->workExperience / 12) * this->salary);
+	Salary = Salary + (0.01 * (WorkExperience / 12) * Salary);
 }
 
 std::string Employee::GetName() const
 {
-	return this->name;
+	return EmployeeName;
 }
 
-unsigned Employee::GetWorkExperience() const
+unsigned int Employee::GetWorkExperience() const
 {
-	return this->workExperience;
+	return WorkExperience;
 }
 
 double Employee::GetSalary() const
 {
-	return this->salary;
+	return Salary;
 }

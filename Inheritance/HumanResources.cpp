@@ -2,63 +2,71 @@
 
 HumanResources::HumanResources()
 {
-	this->employeeID = 0;
+	employeeID = 0;
 }
 
 HumanResources::~HumanResources()
 {
-	std::map<unsigned, Employee*>::iterator itr = this->employeeList.begin();
+	std::map<unsigned int, Employee*>::iterator itr = employeeList.begin();
 
-	while (itr != this->employeeList.end())
+	while (itr != employeeList.end())
 	{
 		Employee* tempEmp = itr->second;
-		this->employeeList.erase(itr++);
+		employeeList.erase(itr++);
 
 		delete tempEmp;
 		tempEmp = nullptr;
 	}
 }
 
-void HumanResources::AddEmployee(const std::string name, const unsigned workExperience, const double salary, const bool cpp)
+void HumanResources::AddProgrammer(const std::string NewName, const unsigned int NewWorkExperience, const double NewSalary, const bool NewKnowsCpp)
 {
-	Employee* newProgrmammer = new Programmer(name, workExperience, salary, cpp);
-	this->employeeList.emplace( ++employeeID, newProgrmammer);
+	Employee* newProgrmammer = new Programmer(NewName, NewWorkExperience, NewSalary, NewKnowsCpp);
+	employeeList.emplace( ++employeeID, newProgrmammer);
 	std::cout << "----------------------------------------" << std::endl;
 	std::cout << "Hired " << newProgrmammer->GetName() << std::endl;
 	std::cout << "----------------------------------------" << std::endl;
 	newProgrmammer = nullptr;
 }
 
-void HumanResources::AddEmployee(const std::string name, const unsigned workExperience, const double salary, const unsigned workers)
+void HumanResources::AddManager(const std::string NewName, const unsigned int NewWorkExperience, const double NewSalary, const unsigned int NewWorkerCount)
 {
-	Employee* newManager = new Manager(name, workExperience, salary, workers);
-	this->employeeList.emplace( ++employeeID, newManager);
+	Employee* newManager = new Manager(NewName, NewWorkExperience, NewSalary, NewWorkerCount);
+	employeeList.emplace( ++employeeID, newManager);
 
 	std::cout << "----------------------------------------" << std::endl;
 	std::cout << "Hired " << newManager->GetName() << std::endl;
 	std::cout << "----------------------------------------" << std::endl;
-	//this->employeeList.insert({ employeeID++, &newManager });
+
 	newManager = nullptr;
 }
 
-void HumanResources::RemoveEmployee(const unsigned key)
+void HumanResources::RemoveEmployee(const unsigned int key)
 {
-	Employee* tempEmp = this->employeeList.at(key);
-	this->employeeList.erase(key);
+
+	if (employeeList.find(key) == employeeList.end())
+	{
+		std::cout << "Invalid employee ID " << key << std::endl;
+		return;
+	}
+	Employee* tempEmp = employeeList.at(key);
+	employeeList.erase(key);
 
 	std::cout << "----------------------------------------" << std::endl;
 	std::cout << "Fired " << tempEmp->GetName() << std::endl;
 	std::cout << "----------------------------------------" << std::endl;
+
 	delete tempEmp;
 	tempEmp = nullptr;
+	
 }
 
 void HumanResources::PrintInfo() const
 {
 
-	if (!this->employeeList.empty())
+	if (!employeeList.empty())
 	{
-		for (const auto& tempEmp : this->employeeList)
+		for (const auto& tempEmp : employeeList)
 		{
 			std::cout << "----------------------------------------" << std::endl;
 			std::cout << "Employee ID: " << tempEmp.first << " ";
@@ -74,14 +82,14 @@ void HumanResources::PrintInfo() const
 	}
 }
 
-void HumanResources::deleteThemAll()
+void HumanResources::FireALlEmployees()
 {
-	std::map<unsigned, Employee*>::iterator itr = this->employeeList.begin();
+	std::map<unsigned int, Employee*>::iterator itr = employeeList.begin();
 
-	while (itr != this->employeeList.end())
+	while (itr != employeeList.end())
 	{
 		Employee* tempEmp = itr->second;
-		this->employeeList.erase(itr++);
+		employeeList.erase(itr++);
 
 		delete tempEmp;
 		tempEmp = nullptr;
@@ -93,14 +101,11 @@ void HumanResources::IncreaseSalary()
 	std::cout << "----------------------------------------" << std::endl;
 	std::cout << "Increasing salary on long term workders ( 1% per 12 months )" << std::endl;
 	std::cout << "----------------------------------------" << std::endl;
-	for (auto& tempEmp : this->employeeList)
+	for (auto& tempEmp : employeeList)
 	{
-		//std::cout << "----------------------------------------" << std::endl;
 		tempEmp.second->Employee::IncreaseSalary();
-		//std::cout << "Employee ID: " << tempEmp.first << " ";
-		//tempEmp.second->PrintInfo();
 	}
-	//std::cout << "----------------------------------------" << std::endl;
+
 }
 
 void HumanResources::FireInters()
@@ -109,16 +114,14 @@ void HumanResources::FireInters()
 	std::cout << "Firing inters ( less than 3 months work experience )" << std::endl;
 	std::cout << "----------------------------------------" << std::endl;
 
-	std::map<unsigned, Employee*>::iterator itr = this->employeeList.begin();
+	std::map<unsigned int, Employee*>::iterator itr = employeeList.begin();
 
-	while (itr != this->employeeList.end())
+	while (itr != employeeList.end())
 	{
-		//std::cout << "-------------------asdasd---------------------" << std::endl;
 		if (itr->second->GetWorkExperience() <= 3)
 		{
-			//std::cout << "-------------------asdasdasdasd---------------------" << std::endl;
 			Employee* tempEmp = itr->second;
-			this->employeeList.erase(itr++);
+			employeeList.erase(itr++);
 
 			delete tempEmp;
 			tempEmp = nullptr;

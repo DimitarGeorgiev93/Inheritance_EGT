@@ -1,23 +1,19 @@
 #include "Programmer.h"
 
-Programmer::Programmer(const std::string name, const unsigned workExperience, const double salary, const bool cpp = 0)
-	:Employee( name, workExperience, salary)
+Programmer::Programmer(const std::string NewEmployeeName, const unsigned int NewWorkExperience, const double NewSalary, const bool NewKnowsCpp = 0)
+	:Employee( NewEmployeeName, NewWorkExperience, NewSalary)
 {
-	this->cpp = cpp;
+	KnowsCpp = NewKnowsCpp;
 }
 
 Programmer::~Programmer()
 {
-	//std::cout << " deleting Name: " << Employee::GetName() << std::endl; // << std::endl;
 }
 
 void Programmer::PrintInfo() const
 {
-	//std::cout << "----------------------------------------" << std::endl;
-	std::cout << "Name: " << Employee::GetName(); // << std::endl;
-	std::cout << " | Work experience: " << Employee::GetWorkExperience(); // << std::endl;
-	std::cout << " | Salary: " << Employee::GetSalary(); // << std::endl;
-	if (this->cpp)
+	Employee::PrintInfo();
+	if (KnowsCpp)
 	{
 		std::cout << " | C++: True"  << std::endl;
 	}

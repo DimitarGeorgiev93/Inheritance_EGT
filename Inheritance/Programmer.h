@@ -5,12 +5,12 @@
 class Programmer : public Employee
 {
 public:
-	Programmer(const std::string, const unsigned, const double, const bool);
+	Programmer(const std::string, const unsigned int, const double, const bool);
 	~Programmer();
 
 	void PrintInfo() const override;
 
 private:
-	bool cpp;
+	bool KnowsCpp;
 };
 

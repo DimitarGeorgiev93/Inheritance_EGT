@@ -10,17 +10,17 @@ public:
 	HumanResources();
 	~HumanResources();
 
-	void AddEmployee(const std::string, const unsigned, const double, const bool);
-	void AddEmployee(const std::string, const unsigned, const double, const unsigned);
-	void RemoveEmployee(const unsigned);
+	void AddProgrammer(const std::string, const unsigned int, const double, const bool);
+	void AddManager(const std::string, const unsigned int, const double, const unsigned int);
+	void RemoveEmployee(const unsigned int);
 	void PrintInfo() const;
-	void deleteThemAll();
+	void FireALlEmployees();
 
 	void IncreaseSalary();
 	void FireInters();
 private:
-	std::map<unsigned, Employee*> employeeList;
+	std::map<unsigned int, Employee*> employeeList;
 
-	unsigned employeeID;
+	unsigned int employeeID;
 };
 

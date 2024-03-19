@@ -8,17 +8,19 @@ int main()
 {
 
     HumanResources HR;
-    HR.AddEmployee("Ivan", 43, 300., true);
-    HR.AddEmployee("Tosho", 13, 400., true);
-    HR.AddEmployee("Misho", 3, 3100., (unsigned)3);
-    HR.AddEmployee("Miro", 3, 310., false);
-    HR.AddEmployee("Pesho", 24, 600., false);
-    HR.AddEmployee("Joro", 3, 3100., (unsigned)5);
-    HR.AddEmployee("Pesho", 24, 600., false);
+    HR.AddProgrammer("Ivan", 43, 300., true);
+    HR.AddProgrammer("Tosho", 13, 400., true);
+    HR.AddManager("Misho", 3, 3100., (unsigned int)3);
+    HR.AddProgrammer("Miro", 3, 310., false);
+    HR.AddProgrammer("Pesho", 24, 600., false);
+    HR.AddManager("Joro", 3, 3100., (unsigned int)5);
+    HR.AddProgrammer("Pesho", 24, 600., false);
 
     HR.PrintInfo();
 
     HR.RemoveEmployee(3);
+
+    HR.RemoveEmployee(23);
 
     HR.PrintInfo();
 
