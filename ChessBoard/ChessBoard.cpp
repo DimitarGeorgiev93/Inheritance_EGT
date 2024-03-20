@@ -17,7 +17,7 @@ ChessBoard::ChessBoard()
 	//InvalidPosition = ChessPosition();
 }
 
-ChessPosition ChessBoard::getPosition(const int x, const int y) const
+ChessPosition& ChessBoard::GetPosition(const int x, const int y) const
 {
 	if (!board[x][y])
 	{

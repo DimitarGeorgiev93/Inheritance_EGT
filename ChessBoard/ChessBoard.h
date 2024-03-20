@@ -7,7 +7,7 @@ class ChessBoard
 public:
 	ChessBoard();
 	
-	ChessPosition getPosition(const int, const int) const;
+	ChessPosition& GetPosition(const int, const int) const;
 
 	~ChessBoard();
 

@@ -1,6 +1,6 @@
 #include "QueenPiece.h"
 
-QueenPiece::QueenPiece(ChessPosition* position): ChessPiece(position)
+QueenPiece::QueenPiece(const char PieceType, const bool PieceColor, ChessPosition* position = nullptr): ChessPiece(PieceType, PieceColor, position)
 {
 }
 
@@ -19,17 +19,17 @@ void QueenPiece::GetMoves( const ChessBoard& chessBoard)
 	int tempX = 0, tempY = 0;
 	while (GetPosition().x + tempX++ <= 8)
 	{
-		if (!chessBoard.board[GetPosition().x + tempX][GetPosition().y]->IsOccupied)
+		if (!chessBoard.board[GetPosition().x + tempX][GetPosition().y]->ChessPieceOnTop)
 		{
-			AvailableMoves.push_back(ChessPosition(GetPosition().x + tempX, GetPosition().y));
+			AvailableMovesList.push_back(ChessPosition(GetPosition().x + tempX, GetPosition().y));
 		}
 	}
 	tempX = 0, tempY = 0;
 	while (GetPosition().x - tempX++ >= 0)
 	{
-		if (!chessBoard.board[GetPosition().x - tempX][GetPosition().y]->IsOccupied)
+		if (!chessBoard.board[GetPosition().x - tempX][GetPosition().y]->ChessPieceOnTop)
 		{
-			AvailableMoves.push_back(ChessPosition(GetPosition().x - tempX, GetPosition().y));
+			AvailableMovesList.push_back(ChessPosition(GetPosition().x - tempX, GetPosition().y));
 		}
 	}
 	tempX = 0, tempY = 0;

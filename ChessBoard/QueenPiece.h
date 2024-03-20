@@ -5,7 +5,7 @@ class QueenPiece :
     public ChessPiece
 {
 public:
-    QueenPiece( ChessPosition* );
+    QueenPiece(const char, const bool, ChessPosition*);
     ~QueenPiece();
 
     void GetMoves(const ChessBoard&) override;

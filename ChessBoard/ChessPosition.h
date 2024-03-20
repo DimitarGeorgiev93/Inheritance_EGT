@@ -2,20 +2,17 @@
 
 #include <iostream>
 #include <vector>
-
+#include "ChessPiece.fwd.h"
 
 struct ChessPosition
 {
-//public:
 	ChessPosition(const int x = 0, const int y = 0);
 	~ChessPosition();
 
-	/*bool GetIsOccupied() const;
-	void Occupy();*/
-
 	friend std::ostream& operator<< (std::ostream&, const ChessPosition&);
 
-	bool IsOccupied;
+	//bool IsOccupied;
+	ChessPiece* ChessPieceOnTop = nullptr;
 	const int x, y ;
 };
 

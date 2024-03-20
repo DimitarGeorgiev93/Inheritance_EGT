@@ -2,8 +2,7 @@
 
 ChessPosition::ChessPosition(const int x , const int y ): x(x), y(y)
 {
-	//Piece = nullptr;
-	IsOccupied = false;
+	//IsOccupied = false;
 }
 
 ChessPosition::~ChessPosition()
