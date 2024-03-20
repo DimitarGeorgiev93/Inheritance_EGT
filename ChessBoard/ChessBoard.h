@@ -9,7 +9,11 @@ public:
 	
 	ChessPosition& GetPosition(const int, const int) const;
 
+	void GetAllMoves(const ChessPosition&) const;
+
 	~ChessBoard();
+
+	void PrintChessBoard() const;
 
 	friend class QueenPiece;
 private:

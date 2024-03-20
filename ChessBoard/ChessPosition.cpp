@@ -1,6 +1,6 @@
 #include "ChessPosition.h"
 
-ChessPosition::ChessPosition(const int x , const int y ): x(x), y(y)
+ChessPosition::ChessPosition(const short x , const short y ): x(x), y(y)
 {
 	//IsOccupied = false;
 }

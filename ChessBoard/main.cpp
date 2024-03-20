@@ -7,11 +7,13 @@ int main()
 {
 	ChessBoard A;
 
-	ChessPiece B('c',true, &InvalidPosition);
+	ChessPiece B('c',true, 2,3);
 
-	ChessPosition temp = A.getPosition(3, 2);
+	ChessPosition temp = A.GetPosition(3, 2);
 	std::cout << temp;
-	temp.ChessPieceOnTop = &B;
-	std::cout << temp.ChessPieceOnTop->GetPosition();
 
+	A.PrintChessBoard();
+	//temp.ChessPieceOnTop = &B;
+	//std::cout << temp.ChessPieceOnTop->GetPosition();
+	return 0;
 }

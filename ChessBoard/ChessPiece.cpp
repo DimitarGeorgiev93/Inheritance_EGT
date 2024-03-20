@@ -1,15 +1,17 @@
 #include "ChessPiece.h"
 
-ChessPiece::ChessPiece( const char NewPieceType, const bool NewPieceColor, ChessPosition* position = nullptr):
+ChessPiece::ChessPiece( const char NewPieceType, const bool NewPieceColor, const short NewX = 0, const short NewY = 0):
 	PieceColor (NewPieceColor), PieceType(NewPieceType)
 {
-	if (position != nullptr) 
+	if (NewX <= 8 && NewX >= 1 && NewY <= 8 && NewY >= 0) 
 	{
-		PiecePosition = position;
+		x = NewX;
+		y = NewY;
 	}
 	else 
 	{
-		PiecePosition = &InvalidPosition; // to fix later
+		x = 0;
+		y = 0;
 	}
 }
 
@@ -17,9 +19,9 @@ ChessPiece::~ChessPiece()
 {
 }
 
-ChessPosition ChessPiece::GetPosition() const
+std::pair<short, short> ChessPiece::GetPosition() const
 {
-	return *PiecePosition;
+	return std::make_pair(x, y);
 }
 
 char ChessPiece::GetPiece() const
@@ -32,15 +34,15 @@ bool ChessPiece::GetColor() const
 	return PieceColor;
 }
 
-std::vector<ChessPosition>& ChessPiece::GetAvailableMovesList()
+std::vector<std::pair<short,short>>& ChessPiece::GetAvailableMovesList()
 {
 	return AvailableMovesList;
 }
 
 void ChessPiece::PrintAvailablePositions() const
 {
-	for (const ChessPosition& temp : AvailableMovesList) {
+	/*for (const ChessPosition& temp : AvailableMovesList) {
 		std::cout << temp << " ";
 	}
-	std::cout << std::endl;
+	std::cout << std::endl;*/
 }
