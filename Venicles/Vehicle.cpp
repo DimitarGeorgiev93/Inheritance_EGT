@@ -29,8 +29,3 @@ bool Vehicle::CanPassOverBridge(const float BridgeWeight) const
 
 	return true;
 }
-
-//void Vehicle::printInfo() const
-//{
-//	std::cout << "\nBrand: " << VehicleBrand << "\nModel : " << VehicleModel << "\nHeight : " << Height << "\nWeight " << Weigth;
-//}

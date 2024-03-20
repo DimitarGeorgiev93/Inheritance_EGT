@@ -1,6 +1,7 @@
 #pragma once
 #include<string>
 #include<iostream>
+#include <stdexcept>
 
 class Vehicle
 {
@@ -11,7 +12,6 @@ public:
 	bool CanPassUnderBridge( const float) const;
 	bool CanPassOverBridge(const float) const;
 
-	//virtual void printInfo() const;
 
 protected:
 	const std::string VehicleBrand;

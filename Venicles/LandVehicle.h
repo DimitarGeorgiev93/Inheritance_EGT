@@ -9,7 +9,6 @@ public:
 
     float GetTime(const float) const;
 
-    //void printInfo() const override;
 protected:
     float MaxSpeed;
     unsigned short HorsePower;

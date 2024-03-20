@@ -19,8 +19,3 @@ float LandVehicle::GetTime(const float Distance) const
 	return Distance / MaxSpeed;
 }
 
-//void LandVehicle::printInfo() const
-//{
-//	Vehicle::printInfo();
-//	std::cout << "\nMax speed: " << MaxSpeed << "\nHorse power: " << HorsePower;
-//}

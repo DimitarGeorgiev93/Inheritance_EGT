@@ -31,9 +31,3 @@ float WaterVehicle::GetTimeDownStream(const float Distance, const float StreamSp
 {
 	return Distance / (MaxKnots + StreamSpeed);
 }
-
-//void WaterVehicle::printInfo() const
-//{
-//	Vehicle::printInfo();
-//	std::cout << "\nWaterVolume: " << WaterVolume << "\nMax Knots: " << MaxKnots;
-//}

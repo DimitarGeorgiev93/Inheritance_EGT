@@ -14,7 +14,6 @@ public:
     float GetTimeUpStream(const float, const float) const;
     float GetTimeDownStream(const float, const float) const;
 
-   // void printInfo() const override;
 protected:
     float WaterVolume;
     float MaxKnots;
