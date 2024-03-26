@@ -30,13 +30,12 @@ public:
 private:
 
 	//void AddCarBrandToCPL(CarBrand);
-	std::vector<RentalLocation*> AgencyLocations;
+	std::vector<RentalLocation> AgencyLocations;
 	std::string AgencyName;
 	std::string AgencyLocation;
 
 	std::map<unsigned short, RentalCar*> RentalCars;
 	std::map<CarBrand,unsigned short> CarPopularityList;
-
 	std::vector<RentalTransaction> RentLogBook;
 	
 };
