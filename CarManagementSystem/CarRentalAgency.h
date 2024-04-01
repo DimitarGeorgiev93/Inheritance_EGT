@@ -11,15 +11,16 @@ public:
 	CarRentalAgency(std::string, std::string);
 	~CarRentalAgency();
 
-	int GetNumberOfCarsForRent() const;
+	unsigned short GetNumberOfCarsForRent() const;
 
 	void ListAvaiableCarsForRent() const;
 
 	Car* RentOutACar(const std::string);
 	Car* RentOutSpecificCar(const unsigned short, const std::string);
+
 	void CustomerReturnsACar(RentalCar*);
 
-	void CalculateProfitFromRentedCars() const;
+	unsigned int CalculateProfitFromRentedCars() const;
 
 	void PrintMostPopularCarBrand() const;
 
@@ -29,14 +30,12 @@ public:
 
 private:
 
-	//void AddCarBrandToCPL(CarBrand);
-	std::vector<RentalLocation> AgencyLocations;
+	std::vector<RentalLocation*> AgencyLocations;
+	void AddCarToLocation(RentalLocation* const, int&);
+
 	std::string AgencyName;
 	std::string AgencyLocation;
-
-	std::map<unsigned short, RentalCar*> RentalCars;
-	std::map<CarBrand,unsigned short> CarPopularityList;
-	std::vector<RentalTransaction> RentLogBook;
 	
+	//std::vector<RentalTransaction*> RentLogBook;
 };
 

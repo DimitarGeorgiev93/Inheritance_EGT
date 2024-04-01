@@ -1,7 +1,7 @@
 #include "RentalCar.h"
 
-RentalCar::RentalCar(const CarBrand NewCarBrand,unsigned short NewID, unsigned short NewRentPerMonth, const Tire* NewTires)
-	:Car(NewCarBrand, NewTires), ID(NewID)
+RentalCar::RentalCar(const CarBrand NewCarBrand,unsigned short NewID, const std::string NewRentalLocation, unsigned short NewRentPerMonth, const Tire* NewTires)
+	:Car(NewCarBrand, NewTires), ID(NewID), RentalLocation(NewRentalLocation)
 {
 	RentPerMonth = NewRentPerMonth;
 	IsItRented = false;
@@ -31,6 +31,11 @@ void RentalCar::PrintInfo() const
 unsigned short RentalCar::GetID() const
 {
 	return ID;
+}
+
+std::string RentalCar::GetRentalLocation() const
+{
+	return RentalLocation;
 }
 
 void RentalCar::ChangeRentedStatus()
